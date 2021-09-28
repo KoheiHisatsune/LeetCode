@@ -11,6 +11,7 @@ int calcPaths(int** memo, int x, int y);
 int uniquePaths(int m, int n){
 
   int i;
+  int result;
   int** memo = malloc(sizeof(int *) * m);
 
   for (i = 0; i < m; i++){
@@ -18,7 +19,10 @@ int uniquePaths(int m, int n){
     memset(memo[i],-1,sizeof(int) * n);
   }
 
-  return calcPaths(memo,m - 1, n - 1);
+  result = calcPaths(memo,m - 1, n - 1);
+  free(memo);
+
+  return result;
 
 }
 
